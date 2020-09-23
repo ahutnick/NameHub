@@ -1,0 +1,15 @@
+current directory: /Users/anastasiahutnick/Desktop/TashHub/NameHub/vendor/cache/ruby/2.6.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+/Users/anastasiahutnick/.rbenv/versions/2.6.3/bin/ruby -I /Users/anastasiahutnick/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20200922-25234-98tbhv.rb extconf.rb
+creating Makefile
+
+current directory: /Users/anastasiahutnick/Desktop/TashHub/NameHub/vendor/cache/ruby/2.6.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/anastasiahutnick/Desktop/TashHub/NameHub/vendor/cache/ruby/2.6.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/anastasiahutnick/Desktop/TashHub/NameHub/vendor/cache/ruby/2.6.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20200922-25234-1fchz26
