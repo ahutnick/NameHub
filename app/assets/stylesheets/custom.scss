@@ -4,6 +4,10 @@ body {
     padding-top: 80px;
 }
 
+.hub {
+    text-align: center;
+}
+
 @mixin box_sizing {
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
