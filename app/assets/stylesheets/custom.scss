@@ -1,7 +1,17 @@
-@import "bootstrap";
 
 body {
     padding-top: 80px;
+}
+
+#error_explanation {
+    color: red;
+    ul {
+        margin: 0 0 30px 0;
+    }
+}
+
+h1 {
+    padding-top: 20px;
 }
 
 .hub {
@@ -12,6 +22,8 @@ body {
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
     box-sizing:         border-box;
+    width: 700px;
+    padding: 25px;
 }
 
 .debug_dump {
@@ -19,5 +31,7 @@ body {
     float: left;
     width: 100%;
     margin-top: 45px;
+    margin-left: 60px;
+    background-color: whitesmoke;
     @include box_sizing;
 }

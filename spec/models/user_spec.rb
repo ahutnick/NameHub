@@ -60,5 +60,12 @@ RSpec.describe User, type: :model do
       @user.password = @user.password_confirmation = "aaaaa"
       expect(@user.valid?).to be false
     end
+
+    it 'throws a fit with non-matching passwords' do
+      @user = User.new(name: "Sample User", email: "user@example.com",
+        password: "password", password_confirmation: "passwords")
+      expect(@user.valid?).to be false
+
+    end
   end
 end
