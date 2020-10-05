@@ -13,16 +13,24 @@ require 'rails_helper'
 
 describe UsersController, type: :controller do 
     describe 'POST create' do 
-        context 'invalid user is not created' do
-            it 'does not add invalid user' do
-                expect {
-                    post :create, params: { user: { name: 'A',
-                                                   email: 'email@nope',
-                                                   password: 'pass',
-                                                   password_confirmation: 'word'
-                                                 } }
-                        }. to change(User, :count).by(0)
-            end
+        it 'does not add invalid user' do
+            expect {
+                post :create, params: { user: { name: 'A',
+                                                email: 'email@nope',
+                                                password: 'pass',
+                                                password_confirmation: 'word'
+                                                } }
+            }. to change(User, :count).by(0)
+        end
+
+        it "does add valid user" do
+            expect {
+                post :create, params: { user: { name: 'A Test',
+                                                email: 'email@example.com',
+                                                password: 'foobar',
+                                                password_confirmation: 'foobar'
+                                                } }
+            }. to change(User, :count).by(1)
         end
     end
 end
