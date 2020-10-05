@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to #{@user.name}Hub!"
       redirect_to(@user)
     else
-      render signup_path
+      render 'new'
     end
   end
 
