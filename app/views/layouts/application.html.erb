@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>NameHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -21,8 +23,13 @@
         <div class="alert alert-<%= key %> w-75 mx-auto"><%= value %></div>
       <% end %>
 
-      <%= yield %>
+    <div class="container-fluid">
+      <div class="col-sm-8">
 
-      <%= debug(params) if Rails.env.development? %>
+        <%= yield %>
+
+        <%= debug(params) if Rails.env.development? %>
+      </div>
+    </div>
   </body>
 </html>
