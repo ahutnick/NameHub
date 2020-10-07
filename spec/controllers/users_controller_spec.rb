@@ -12,6 +12,13 @@
 require 'rails_helper'
 
 describe UsersController, type: :controller do 
+    describe 'GET index' do 
+        it 'does not get index' do 
+            get :index
+            expect(response).not_to be_successful
+        end
+    end
+
     describe 'POST create' do 
         it 'does not add invalid user' do
             expect {
