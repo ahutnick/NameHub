@@ -11,15 +11,13 @@
 #
 
 require 'rails_helper'
+require './spec/support/login_helpers.rb'
+
+RSpec.configure do |c|
+    c.include LoginHelpers
+end
 
 describe UsersController, type: :controller do 
-    describe 'GET index' do 
-        it 'does not get index' do 
-            get :index
-            expect(response).not_to be_successful
-        end
-    end
-
     describe 'POST create' do 
         it 'does not add invalid user' do
             expect {
@@ -39,6 +37,7 @@ describe UsersController, type: :controller do
                                                 password_confirmation: 'foobar'
                                                 } }
             }. to change(User, :count).by(1)
+            expect(is_logged_in?).to be true
         end
     end
 end
