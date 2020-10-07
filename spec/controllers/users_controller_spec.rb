@@ -5,6 +5,7 @@
 # id                         :integer
 # name                       :string
 # email                      :string
+# password_digest            (see below)
 # password                   :string
 # password_confirmation      :string
 #

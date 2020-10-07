@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about', as: 'about'
   get '/signup', to: 'users#new', as: 'signup'
   get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create', as: 'new_session'
+  post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
   resources :users, except: [:index] 
