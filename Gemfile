@@ -41,6 +41,7 @@ group :development, :test do
   gem "faker"
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
+  gem 'webdrivers', '~> 4.0', require: false
 
 end
 
