@@ -36,10 +36,11 @@ gem 'webpacker', '~> 4.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara'
+  gem 'capybara', '~> 3.32', '>= 3.32.2'
   gem "factory_bot_rails"
   gem "faker"
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
 
 end
 
