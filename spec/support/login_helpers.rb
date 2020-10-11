@@ -10,6 +10,14 @@ module LoginHelpers
       click_button "commit"
   end
 
+  def log_in_remember(user)
+    visit login_path
+    fill_in "session_email", with: user.email
+    fill_in "session_password", with: user.password
+    page.check "session_remember_me"
+    click_button "commit"
+  end
+
   def sign_up
     user = build(:user)
     visit signup_path
