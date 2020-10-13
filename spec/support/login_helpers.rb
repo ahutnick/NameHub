@@ -18,6 +18,14 @@ module LoginHelpers
     click_button "commit"
   end
 
+  def log_out
+    click_link "Log Out"
+  end
+
+  def sign_in(user)
+    session[:user_id] = user.id
+  end
+
   def sign_up
     user = build(:user)
     visit signup_path

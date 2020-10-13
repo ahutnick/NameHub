@@ -1,6 +1,7 @@
 
 body {
     padding-top: 80px;
+    padding-left: 60px;
 }
 
 #error_explanation {
@@ -9,8 +10,10 @@ body {
     }
 }
 
-h1 {
-    padding-top: 20px;
+form {
+    label {
+        margin-top: 10px;
+    }
 }
 
 .hub {

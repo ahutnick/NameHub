@@ -8,6 +8,7 @@ end
 
 feature "log in and out" do 
     let (:user) { create(:user) }
+    let (:user2) { create(:user) }
 
     scenario "with multiple windows", js: true do 
         log_in(user)
@@ -21,4 +22,11 @@ feature "log in and out" do
             expect(page).to have_content("Log In")
         end
     end
+
+    scenario "login only shows current user" do
+        log_in(user)
+        visit user2.id.to_s
+        expect(page).to have_content("Welcome!")
+    end
+        
 end
