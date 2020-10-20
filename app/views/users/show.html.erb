@@ -1,1 +1,21 @@
-<h1 class="hub"><%= @user.name  %>Hub</h1>
+<%# Move to projects/index? %>
+
+<div class="row">
+    <div class="col-sm-8">
+        <h1 class="hub"><%= @user.name %>Hub</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <%= render 'current_card'  %>
+    </div>
+    <div class="col-sm-4">
+        <%= render 'recent' %>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-sm-8">
+        <%= link_to "New Project", { controller: 'projects', action: 'new' }, class: 'btn btn-success' %>
+    </div>
+</div>
+

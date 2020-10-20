@@ -1,0 +1,20 @@
+<div class="card mt-3">
+    <div class="card-header">Current Projects</div>
+    <% if @user.projects.any? %>
+        <table class="table table-striped">
+            <% @user.projects.each do |p| %>
+                <tr>
+                    <td><%= link_to p.title, controller: 'projects', action: 'show', id: p.id %></td> 
+                    <td><%= date_format(p.created_at) %></td>
+                    <td>
+                        <%= link_to 'Delete', p, method: :delete, 
+                        data: { confirm: 'Are you sure you want to delete this project?' }, 
+                        class: 'btn btn-danger' %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+    <% else %>
+        <div class="card-body">No Projects yet - click below to get started!</div>
+    <% end %>
+</div>
