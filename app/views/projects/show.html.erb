@@ -1,20 +1,24 @@
-<h1><%= @project.title %></h1>
-<p><%= @project.description %></p>
-
-<div class="row">
-    <div class="col">
-        <h4>Ideas</h4>
-    </div>
-    <div class="col">
-        <h4>Ready</h4>
-    </div>
-    <div class="col">
-        <h4>In Progress</h4>
-    </div>
-    <div class="col">
-        <h4>Review</h4>
-    </div>
-    <div class="col">
-        <h4>Completed!</h4>
+<div class="col-sm-8">
+    <h1><%= @project.title %></h1>
+    <p><%= @project.description %></p>
+    <%= link_to "Edit Header", edit_project_path(@project), class: "btn btn-primary" %>
+</div>
+<div class="col-sm-11 hub mt-3">
+    <div class="row">
+        <div class="col" id="ideas">
+            <h4>Ideas</h4>
+        </div>
+        <div class="col" id="ready">
+            <h4>Ready</h4>
+        </div>
+        <div class="col" id="progress">
+            <h4>In Progress</h4>
+        </div>
+        <div class="col" id="review">
+            <h4>Review</h4>
+        </div>
+        <div class="col" id="completed_tasks">
+            <h4>Completed!</h4>
+        </div>
     </div>
 </div>

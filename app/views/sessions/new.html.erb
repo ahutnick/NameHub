@@ -1,22 +1,28 @@
-<div class="container">
-    <div class="col-md-6 col-lg-5">
-        <h1>Log In</h1>
+<div class="col-md-6 col-lg-5">
+    <h1>Log In</h1>
 
-        <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+        
+        <div class="form-group">
             <%= f.label :email %>
-            <%= f.email_field :email, class: "form-control" %>
+            <%= f.email_field :email, class: "form-control w-50" %>
+        </div>
 
+        <div class="form-group">
             <%= f.label :password %>
-            <%= f.password_field :password, class: "form-control" %>
+            <%= f.password_field :password, class: "form-control w-50" %>
+        </div>
 
-            <%= f.label :remember_me, class: "checkbox-inline mt-2" do %>
-                <%= f.check_box :remember_me %>
+        <div class="form-group">
+            <%= f.label :remember_me, class: "mt-2" %>
+            <div class="form-check">
+                <%= f.check_box :remember_me, class: "form-check-input" %>
                 <span>Remember me on this computer</span>
-            <% end %>
+            </div>
+        </div>
 
-            <%= f.submit "Log In", class: "btn btn-primary mt-2 mb-3" %>
-        <% end %>
+        <%= f.submit "Log In", class: "btn btn-primary mt-2 mb-3" %>
+    <% end %>
 
-        <p>New user? Click <%= link_to 'here', signup_path %> to sign up now!</p>
-    </div>
+    <p>New user? Click <%= link_to 'here', signup_path %> to sign up now!</p>
 </div>
