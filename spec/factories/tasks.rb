@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :task do
-    title { "MyString" }
-    completed { false }
-    project { nil }
+    title { Faker::Lorem.sentence }
+    project factory: :project
+    stage { "idea" }
   end
 end
