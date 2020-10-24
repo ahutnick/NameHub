@@ -1,15 +1,28 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the ProjectsHelper. For example:
-#
-# describe ProjectsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe ProjectsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:task) { create(:task) }
+  let(:task2) { create(:task, project: task.project) }
+  
+  describe "progress" do
+    it "properly uses percent, total, completed" do
+      task2.stage = "completed"
+      task2.save
+      expect(helper.progress).to eq("1 / 2 Completed ( 50% )")
+      task.stage = "completed"
+      task.save
+      expect(helper.progress).to eq("2 / 2 Completed ( 100% )")
+    end
+  end
+
+  describe "completed?" do
+    it "identifies completed projects" do
+      task2.stage = "completed"
+      task2.save
+      expect(helper.completed?).to eq false
+      task.stage = "completed"
+      task.save
+      expect(helper.completed?).to eq true
+    end
+  end
 end
