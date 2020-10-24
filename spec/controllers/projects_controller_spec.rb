@@ -3,8 +3,8 @@
 # Table name: projects
 #
 # id                         :integer
-# title                       :string
-# description                      :text
+# title                      :string
+# description                :text
 # user_id
 #
 
