@@ -1,0 +1,23 @@
+<div class="col-6 mx-auto">
+    <div class="card">
+        <div class="card-header text-center"><%= @task.title %></div>
+        <div class="card-body text-center">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    Created: <%= date_format(@task.created_at) %> | 
+                    Updated: <%= date_format(@task.updated_at) %>
+                </li>
+                <li class="list-group-item"><%= @task.stage.titleize %></li>
+                <li class="list-group-item"><%= @task.description.blank? ? "No Description" : @task.description %></li>
+                <li class="list-group-item"><%= link_to 'Add Comment', '#' %></li>
+                <li class="list-group-item">
+                    <%= link_to 'Delete Task', [@task.project,@task], method: :delete, 
+                        data: { confirm: 'Are you sure you want to delete this task?' }, 
+                        class: 'btn btn-danger' %>
+                    <%= link_to 'Edit', edit_project_task_path, class: 'btn btn-primary' %>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <%= link_to 'Return to Project', @task.project, class: 'btn btn-success mt-3' %>
+</div>

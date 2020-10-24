@@ -1,4 +1,4 @@
-<div class="card" id='task-<%= task.id %>'>
-    <div class="card-header"><%= link_to task.title, "#" %></div>
-    <div class="card-body"><p><%= date_format(task.created_at) %></p></div>
+<div class="card mt-3" id='task-<%= task.id %>'>
+    <div class="card-header"><%= link_to task.title, "#{task.project.id}/tasks/#{task.id}" %></div>
+    <div class="card-body"><%= date_format(task.created_at) %></div>
 </div>
