@@ -61,4 +61,15 @@ RSpec.describe User, type: :model do
       expect(user.authenticated?('')).to eq false
     end
   end
+
+  describe 'Dependent destroy' do
+    let(:project) { create(:project, user: user) }
+
+    it 'deletes projects with user' do
+      expect(project.valid?).to eq true
+      expect { 
+        user.destroy
+      }.to change { Project.count }.by(-1)
+    end
+  end
 end

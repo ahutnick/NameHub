@@ -24,4 +24,15 @@ RSpec.describe Project, type: :model do
       expect(@project_2.valid?).to eq true
     end
   end
+
+  describe 'Dependent destroy' do
+    let(:task) { create(:task, project: project) }
+
+    it 'deletes projects with user' do
+      expect(task.valid?).to eq true
+      expect { 
+        project.destroy
+      }.to change { Task.count }.by(-1)
+    end
+  end
 end
