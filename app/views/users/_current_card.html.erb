@@ -6,6 +6,7 @@
                 <tr>
                     <td><%= link_to p.title, controller: 'projects', action: 'show', id: p.id %></td> 
                     <td><%= date_format(p.created_at) %></td>
+                    <td><%= progress %></td>
                     <td>
                         <%= link_to 'Delete', p, method: :delete, 
                         data: { confirm: 'Are you sure you want to delete this project?' }, 
