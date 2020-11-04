@@ -1,0 +1,9 @@
+<%= form_with(model: @comment, url: [@task, @comment], local: true) do |f|  %>
+    <h4>New Comment</h4>
+    
+    <div class="form-group">
+        <%= f.text_area :content, class: "form-control", value: form_field_exists?(@comment.content) %>
+    </div>
+
+    <%= f.submit "Submit", class: 'mt-3 btn btn-primary' %>
+<% end %>

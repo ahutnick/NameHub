@@ -8,12 +8,18 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index]
   resources :projects, except: [:index] do 
-    resources :tasks, except: [:index]
+    resources :tasks, except: [:index] do 
+        resources :comments, only: [:create, :destroy, :update]
+    end
     defaults format: :json do
       resources :tasks, only: [:index]
     end
   end
+  resources :tasks, only: [] do 
+    resources :comments, only: [:create, :destroy]
+  end
 
-  resources :tasks, only: [:create, :destroy, :update]
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

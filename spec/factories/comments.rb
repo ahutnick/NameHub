@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :comment do
-    content { "MyText" }
-    task { nil }
+    content { Faker::Lorem.sentence }
+    task factory: :task
   end
 end

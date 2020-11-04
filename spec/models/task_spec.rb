@@ -12,4 +12,14 @@ RSpec.describe Task, type: :model do
     end
   end
 
+  describe "Dependent destroy" do
+    let (:comment) { create(:comment, task: task) }
+
+    it 'deletes comments with task' do
+      expect(comment.valid?).to eq true
+      expect {
+        task.destroy
+      }.to change { Comment.count }.by(-1)
+    end
+  end
 end

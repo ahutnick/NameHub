@@ -24,6 +24,8 @@ class TasksController < ApplicationController
 
     def show
         @task = Task.find(params[:id])
+        @comment = @task.comments.build
+        
     end
 
     def destroy
