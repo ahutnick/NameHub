@@ -1,0 +1,10 @@
+<tr>
+    <td><%= link_to project.title, controller: 'projects', action: 'show', id: project.id %></td> 
+    <td><%= date_format(project.created_at) %></td>
+    <td><%= progress %></td>
+    <td>
+        <%= link_to 'Delete', project, method: :delete, 
+            data: { confirm: 'Are you sure you want to delete this project?' }, 
+            class: 'btn btn-danger' %>
+    </td>
+</tr>

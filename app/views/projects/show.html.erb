@@ -11,7 +11,7 @@
         <%= link_to "New Task", new_project_task_path(@project), class: "btn btn-success" %>
     </div>
 </div>
-<%= render partial: 'task', collection: @project.tasks %>
+<%= render partial: 'tasks/task', collection: @project.tasks %>
 
 <div class="col-sm-11 hub mt-3" id="dash">
     <div class="row">
