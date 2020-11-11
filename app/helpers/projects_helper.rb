@@ -1,6 +1,6 @@
 module ProjectsHelper
     def progress
-        "#{completed} / #{total} Completed ( #{percent}% )"
+        "#{completed} / #{total} ( #{percent}% )"
     end
 
     def percent

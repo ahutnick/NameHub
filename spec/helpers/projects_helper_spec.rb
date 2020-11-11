@@ -8,10 +8,10 @@ RSpec.describe ProjectsHelper, type: :helper do
     it "properly uses percent, total, completed" do
       task2.stage = "completed"
       task2.save
-      expect(helper.progress).to eq("1 / 2 Completed ( 50% )")
+      expect(helper.progress).to eq("1 / 2 ( 50% )")
       task.stage = "completed"
       task.save
-      expect(helper.progress).to eq("2 / 2 Completed ( 100% )")
+      expect(helper.progress).to eq("2 / 2 ( 100% )")
     end
   end
 

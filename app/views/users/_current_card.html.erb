@@ -1,6 +1,13 @@
 <div class="card mt-3">
-    <div class="card-header">Current Projects</div>
+    <div class="card-header text-center">Current Projects</div>
     <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope = 'col'>Title</th>
+                <th scope = 'col'>Created</th>
+                <th scope = 'col'>Completed</th>
+            </tr>
+        </thead>
         <%= render( partial: 'projects/project', collection: current_user.projects ) || content_tag('tr') do %>
             <td>No Projects yet - click below to get started!</td> 
         <% end %>
