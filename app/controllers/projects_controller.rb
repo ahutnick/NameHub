@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
     def create
         @project = current_user.projects.build(project_params)
         if @project.save
+            track_activity @project
             flash[:success] = "Welcome to your new Project!"
             redirect_to(@project)
         else
@@ -23,7 +24,9 @@ class ProjectsController < ApplicationController
     end
 
     def destroy
-        Project.find(params[:id]).destroy
+        @project = Project.find(params[:id])
+        track_activity @project
+        @project.destroy
         flash[:success] = "Project Deleted"
         redirect_back(fallback_location: current_user)
     end
@@ -35,6 +38,7 @@ class ProjectsController < ApplicationController
     def update
         @project = Project.find(params[:id])
         if @project.update(project_params)
+          track_activity @project
           flash[:success] = "Project Updated"
           redirect_to @project
         else

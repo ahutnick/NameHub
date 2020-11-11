@@ -8,6 +8,7 @@ class TasksController < ApplicationController
     def create
         @task = @project.tasks.build(task_params)
         if @task.save
+            track_activity @task
             flash[:success] = "Task Created!"
             redirect_to(@project)
         else
@@ -29,6 +30,8 @@ class TasksController < ApplicationController
     end
 
     def destroy
+        @task = Task.find(params[:id])
+        track_activity @task
         Task.find(params[:id]).destroy
         flash[:success] = "Task Deleted"
         redirect_to @project
@@ -41,6 +44,7 @@ class TasksController < ApplicationController
     def update
         @task = Task.find(params[:id])
         if @task.update(task_params)
+            track_activity @task
             flash[:success] = "Task Updated"
             redirect_to project_task_path
         else

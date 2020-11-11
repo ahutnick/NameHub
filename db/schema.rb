@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_203945) do
+ActiveRecord::Schema.define(version: 2020_11_05_165722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "action"
+    t.string "trackable_type", null: false
+    t.bigint "trackable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -52,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_203945) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "activities", "users"
   add_foreign_key "comments", "tasks"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"

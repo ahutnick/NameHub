@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     def create
         @comment = @task.comments.build(comment_params)
         if @comment.save
+            track_activity @comment
             flash[:success] = "New Comment Added!"
             redirect_back(fallback_location: 'tasks#show')
         else
@@ -12,6 +13,8 @@ class CommentsController < ApplicationController
     end
 
     def destroy
+        @comment = Comment.find(params[:id])
+        track_activity @comment
         Comment.find(params[:id]).destroy
         flash[:success] = "Comment Deleted"
         redirect_back(fallback_location: 'tasks#show')
