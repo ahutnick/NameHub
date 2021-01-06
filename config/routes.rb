@@ -8,9 +8,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index]
   resources :projects, except: [:index] do 
-    resources :tasks, except: [:index] do 
-        resources :comments, only: [:create, :destroy, :update]
-    end
+    resources :tasks, except: [:index]
     defaults format: :json do
       resources :tasks, only: [:index]
     end

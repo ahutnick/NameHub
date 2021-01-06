@@ -7,8 +7,12 @@ module ActivitiesHelper
     end
 
     def content_type(activity)
-        return if activity.action == "destroy" 
-        activity.trackable_type == 'Comment' ? ': ' + activity.trackable.content : ': ' + activity.trackable.title
+        return if activity.action == "destroy"
+        unless ( activity.trackable.try(:content).nil? && activity.trackable.try(:title).nil? )
+            activity.trackable_type == 'Comment' ? ': ' + activity.trackable.content : ': ' + activity.trackable.title
+        else
+            ' which has since been deleted'
+        end
     end
 
     def recent_activity

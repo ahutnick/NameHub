@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @activities = current_user.activities.order(created_at: :desc)[0, 10]
+    @activities = current_user.activities.order(created_at: :desc)[0, 5]
   end
   
   def new
